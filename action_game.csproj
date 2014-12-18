@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0690BDBE-7218-418B-9EC1-C8E5566043E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>action_game</RootNamespace>
+    <AssemblyName>action_game</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sources\model\character\ActionCharacter.cs" />
+    <Compile Include="sources\model\character\ActionCharacterReferencer.cs" />
+    <Compile Include="sources\model\character\ai\AIBuilder.cs" />
+    <Compile Include="sources\model\character\ai\AIController.cs" />
+    <Compile Include="sources\model\character\ai\think\IThinkable.cs" />
+    <Compile Include="sources\model\character\ai\think\state\Attack.cs" />
+    <Compile Include="sources\model\character\ai\think\state\Attacking.cs" />
+    <Compile Include="sources\model\character\ai\think\state\IState.cs" />
+    <Compile Include="sources\model\character\ai\think\state\RandomWalk.cs" />
+    <Compile Include="sources\model\character\ai\think\state\ThinkByState.cs" />
+    <Compile Include="sources\model\character\ai\think\state\ThinkNext.cs" />
+    <Compile Include="sources\model\character\ai\think\state\Wait.cs" />
+    <Compile Include="sources\model\character\ai\think\state\Walking.cs" />
+    <Compile Include="sources\model\character\ai\think\utility\AttackableDistance.cs" />
+    <Compile Include="sources\model\character\ai\think\utility\AttackableSearcher.cs" />
+    <Compile Include="sources\model\character\BattleCharacter.cs" />
+    <Compile Include="sources\model\character\BattleStatus.cs" />
+    <Compile Include="sources\model\character\BattleStatusCalculator.cs" />
+    <Compile Include="sources\model\character\Executioner.cs" />
+    <Compile Include="sources\model\character\GroupId.cs" />
+    <Compile Include="sources\model\character\group\Grouping.cs" />
+    <Compile Include="sources\model\character\ICharacterable.cs" />
+    <Compile Include="sources\model\character\IMovable.cs" />
+    <Compile Include="sources\model\character\ISkillExecutable.cs" />
+    <Compile Include="sources\model\character\item\EquipItemHolder.cs" />
+    <Compile Include="sources\model\character\item\IEquipable.cs" />
+    <Compile Include="sources\model\character\item\Weapon.cs" />
+    <Compile Include="sources\model\character\state\Idle.cs" />
+    <Compile Include="sources\model\character\state\IState.cs" />
+    <Compile Include="sources\model\character\state\IStateChangable.cs" />
+    <Compile Include="sources\model\character\state\SkillExecuting.cs" />
+    <Compile Include="sources\model\event\EventListener.cs" />
+    <Compile Include="sources\model\event\EventType.cs" />
+    <Compile Include="sources\model\file\FilePathSearcher.cs" />
+    <Compile Include="sources\model\file\GetEncoding.cs" />
+    <Compile Include="sources\model\input\InputEventListener.cs" />
+    <Compile Include="sources\model\input\SingleTouchController.cs" />
+    <Compile Include="sources\model\scenario\builder\Attribute.cs" />
+    <Compile Include="sources\model\scenario\builder\Command.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Background.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Center.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Character.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Comment.cs" />
+    <Compile Include="sources\model\scenario\builder\command\ICommandable.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Image.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Left.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Link.cs" />
+    <Compile Include="sources\model\scenario\builder\command\NewLine.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Right.cs" />
+    <Compile Include="sources\model\scenario\builder\command\Say.cs" />
+    <Compile Include="sources\model\scenario\builder\command\WaitNext.cs" />
+    <Compile Include="sources\model\scenario\builder\Element.cs" />
+    <Compile Include="sources\model\scenario\builder\IScenarioBuildable.cs" />
+    <Compile Include="sources\model\scenario\builder\Root.cs" />
+    <Compile Include="sources\model\scenario\builder\SyntaxErrorException.cs" />
+    <Compile Include="sources\model\scenario\builder\Tag.cs" />
+    <Compile Include="sources\model\scenario\builder\Text.cs" />
+    <Compile Include="sources\model\scenario\executor\Center.cs" />
+    <Compile Include="sources\model\scenario\executor\image\Change.cs" />
+    <Compile Include="sources\model\scenario\executor\image\Creator.cs" />
+    <Compile Include="sources\model\scenario\executor\image\IEffectable.cs" />
+    <Compile Include="sources\model\scenario\executor\image\In.cs" />
+    <Compile Include="sources\model\scenario\executor\image\Out.cs" />
+    <Compile Include="sources\model\scenario\executor\IScenarioExecutor.cs" />
+    <Compile Include="sources\model\scenario\executor\Left.cs" />
+    <Compile Include="sources\model\scenario\executor\NewLine.cs" />
+    <Compile Include="sources\model\scenario\executor\Right.cs" />
+    <Compile Include="sources\model\scenario\executor\Say.cs" />
+    <Compile Include="sources\model\scenario\executor\Text.cs" />
+    <Compile Include="sources\model\scenario\executor\WaitNext.cs" />
+    <Compile Include="sources\model\scenario\IScenarioNode.cs" />
+    <Compile Include="sources\model\scenario\parser\Tokenizer.cs" />
+    <Compile Include="sources\model\scenario\parser\TokenParser.cs" />
+    <Compile Include="sources\model\scenario\parser\token\DoubleQuotation.cs" />
+    <Compile Include="sources\model\scenario\parser\token\Equal.cs" />
+    <Compile Include="sources\model\scenario\parser\token\ITokenable.cs" />
+    <Compile Include="sources\model\scenario\parser\token\LeftArrow.cs" />
+    <Compile Include="sources\model\scenario\parser\token\RightArrow.cs" />
+    <Compile Include="sources\model\scenario\parser\token\Slash.cs" />
+    <Compile Include="sources\model\scenario\parser\token\Word.cs" />
+    <Compile Include="sources\model\scenario\ScenarioAttribute.cs" />
+    <Compile Include="sources\model\scenario\ScenarioCharacter.cs" />
+    <Compile Include="sources\model\scenario\ScenarioData.cs" />
+    <Compile Include="sources\model\scenario\ScenarioElement.cs" />
+    <Compile Include="sources\model\scenario\ScenarioLoader.cs" />
+    <Compile Include="sources\model\scenario\ScenarioPlayer.cs" />
+    <Compile Include="sources\model\skill\ISkill.cs" />
+    <Compile Include="sources\model\skill\NormalAttack.cs" />
+    <Compile Include="sources\model\skill\SkillHolder.cs" />
+    <Compile Include="sources\model\sound\BGM\BGMPlayer.cs" />
+    <Compile Include="sources\model\sound\BGM\BGMSound.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMState.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStateFadeIn.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStateFadeOut.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStateNoFadeOut.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStatePause.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStatePlaying.cs" />
+    <Compile Include="sources\model\sound\BGM\state\BGMStateWait.cs" />
+    <Compile Include="sources\model\sound\ISoundPlayable.cs" />
+    <Compile Include="sources\model\sound\SE\SoundEffecter.cs" />
+    <Compile Include="sources\model\sound\SE\SoundEffectType.cs" />
+    <Compile Include="sources\model\story\ScenarioSelector.cs" />
+    <Compile Include="sources\model\story\StageSelector.cs" />
+    <Compile Include="sources\model\story\StoryProvider.cs" />
+    <Compile Include="sources\model\utility\GlobalRandom.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sources\model\character\ai\think\part\" />
+    <Folder Include="sources\model\character\skill\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

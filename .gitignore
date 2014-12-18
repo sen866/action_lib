@@ -1,0 +1,13 @@
+Library
+Temp
+*.pidb
+*.unityproj
+*.userprefs
+*.suo
+*.user
+obj/
+Assembly-CSharp-vs.csproj
+Assembly-CSharp.csproj
+action-csharp.sln
+action.sln
+bin/
