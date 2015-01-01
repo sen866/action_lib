@@ -76,7 +76,7 @@ namespace action_game.sources.model.character
 
         public bool ChangeState(IState state)
         {
-            if (CurrentState.GetState() == state.GetState())
+            if (CurrentState == state)
             {
                 //  すでにその状態である
                 return false;

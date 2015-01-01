@@ -23,7 +23,7 @@ namespace action_game.sources.model.character.ai.think.state
                 return new state.Wait();
             }
 
-            own.Executioner.execute(now, own, own.SkillHolder.Current);
+            own.Executioner.ExecuteNormal(now, own);
 
             return new state.Attacking(own);
         }

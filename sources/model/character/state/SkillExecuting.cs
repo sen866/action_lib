@@ -25,8 +25,8 @@ namespace action_game.sources.model.character.state
 
         public bool IsFromChangable(IState state)
         {
-            //  IdleからのみOK
-            return state.GetState() == State.Idle;
+            //  Idleからかコンボでスキル実行中も可
+            return (state.GetState() == State.Idle) || (state.GetState() == State.SkillExecuting);
         }
 
         public bool CanMove()
@@ -67,7 +67,6 @@ namespace action_game.sources.model.character.state
         }
 
         public event Action OnStart;
-
         public event Action OnEnd;
     }
 }

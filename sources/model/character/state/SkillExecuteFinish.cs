@@ -5,16 +5,17 @@ using System.Text;
 
 namespace action_game.sources.model.character.state
 {
-    class Idle : IState
+    class SkillExecuteFinish : IState
     {
-        public State GetState() { return State.Idle; }
-
+        public State GetState()
+        {
+            return State.SkillExecuteFinish;
+        }
 
         public bool IsToChangable(IState state)
         {
             return true;
         }
-
 
         public bool IsFromChangable(IState state)
         {
@@ -23,7 +24,7 @@ namespace action_game.sources.model.character.state
 
         public bool CanMove()
         {
-            return true;
+            return false;
         }
 
         public bool CanAttack()
@@ -33,28 +34,26 @@ namespace action_game.sources.model.character.state
 
         public bool IsNextStateTime(float now)
         {
-            return false;
+            return true;
         }
 
         public IState GetNextState()
         {
-            return this;
+            return new Idle();
         }
 
         public void Enter()
         {
-            if (null != OnStart)
-                OnStart();
+            OnStart();
         }
 
         public void Exit()
         {
-            if (null != OnEnd)
-                OnEnd();
+            OnEnd();
         }
 
+        public event Action OnStart = delegate { };
 
-        public event Action OnStart;
-        public event Action OnEnd;
+        public event Action OnEnd = delegate { };
     }
 }

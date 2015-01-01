@@ -9,6 +9,6 @@ namespace action_game.sources.model.character
 {
     public interface ISkillExecutable
     {
-        void execute(float now, ICharacterable characterable, ISkill skill);
+        void ExecuteNormal(float now, ICharacterable characterable);
     }
 }

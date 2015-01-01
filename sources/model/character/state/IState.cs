@@ -9,6 +9,7 @@ namespace action_game.sources.model.character.state
     {
         Idle,
         SkillExecuting,
+        SkillExecuteFinish,
     }
 
     public interface IState

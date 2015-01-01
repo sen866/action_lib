@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -37,6 +41,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Unity\ogames\action\dll\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +77,7 @@
     <Compile Include="sources\model\character\state\Idle.cs" />
     <Compile Include="sources\model\character\state\IState.cs" />
     <Compile Include="sources\model\character\state\IStateChangable.cs" />
+    <Compile Include="sources\model\character\state\SkillExecuteFinish.cs" />
     <Compile Include="sources\model\character\state\SkillExecuting.cs" />
     <Compile Include="sources\model\event\EventListener.cs" />
     <Compile Include="sources\model\event\EventType.cs" />
@@ -148,9 +156,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sources\model\character\ai\think\part\" />
-    <Folder Include="sources\model\character\skill\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) $(ProjectDir)..\..\..\Unity\ogames\action\Assets\OGamesProject\Plugins\action_game.dll</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
