@@ -77,8 +77,10 @@
     <Compile Include="sources\model\character\state\Idle.cs" />
     <Compile Include="sources\model\character\state\IState.cs" />
     <Compile Include="sources\model\character\state\IStateChangable.cs" />
+    <Compile Include="sources\model\character\state\NextSkillChainChance.cs" />
     <Compile Include="sources\model\character\state\SkillExecuteFinish.cs" />
     <Compile Include="sources\model\character\state\SkillExecuting.cs" />
+    <Compile Include="sources\model\character\state\SkillRecasting.cs" />
     <Compile Include="sources\model\event\EventListener.cs" />
     <Compile Include="sources\model\event\EventType.cs" />
     <Compile Include="sources\model\file\FilePathSearcher.cs" />

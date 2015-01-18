@@ -5,28 +5,25 @@ using System.Text;
 
 namespace action_game.sources.model.character.state
 {
-    class SkillExecuting : IState
+    class NextSkillChainChance : IState
     {
-        public SkillExecuting(float now, float stateTime, IState nextState)
+        public NextSkillChainChance(float now, float stateTime, IState nextState)
         {
             this.startTime = now;
             this.stateTime = stateTime;
             this.nextState = nextState;
         }
 
-        public State GetState() { return State.SkillExecuting; }
-
+        public State GetState() { return State.NextSkillChainChance;  }
 
         public bool IsToChangable(IState state)
         {
             return true;
         }
 
-
         public bool IsFromChangable(IState state)
         {
-            //  Idleからかコンボチャンス中のみ可
-            return (state.GetState() == State.Idle) || (state.GetState() == State.NextSkillChainChance);
+            return state.GetState() == State.SkillExecuting;
         }
 
         public bool CanMove()
@@ -36,7 +33,7 @@ namespace action_game.sources.model.character.state
 
         public bool CanAttack()
         {
-            return true;
+            return false;
         }
 
         public bool IsNextStateTime(float now)
@@ -53,7 +50,6 @@ namespace action_game.sources.model.character.state
         private float stateTime { get; set; }
         private IState nextState { get; set; }
 
-
         public void Enter()
         {
             if (null != OnStart)
@@ -67,6 +63,7 @@ namespace action_game.sources.model.character.state
         }
 
         public event Action OnStart;
+
         public event Action OnEnd;
     }
 }

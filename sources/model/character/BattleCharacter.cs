@@ -21,10 +21,13 @@ namespace action_game.sources.model.character
 
         public void Attack(IBattlable target)
         {
+            //  なんかこれあったほうが色々都合悪い気がするのでコメントアウト
+            /*
             if (!owner.CurrentState.CanAttack())
             {
                 return;
             }
+            */
             var damage = BattleStatus.Attack - target.BattleStatus.Defense;
             target.Damaged(damage);
         }

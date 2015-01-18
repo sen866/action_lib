@@ -9,6 +9,8 @@ namespace action_game.sources.model.character.state
     {
         Idle,
         SkillExecuting,
+        NextSkillChainChance,
+        SkillRecasting,
         SkillExecuteFinish,
     }
 

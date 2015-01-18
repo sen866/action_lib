@@ -10,6 +10,10 @@ namespace action_game.sources.model.skill
     {
         float GetExecutingTime();
 
+        float GetChainTime();
+
+        float GetRecastingTime();
+
         void Execute(ICharacterable executor);
 
         event Action<ICharacterable> OnExecute;

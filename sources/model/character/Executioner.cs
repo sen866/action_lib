@@ -23,7 +23,19 @@ namespace action_game.sources.model.character
             finishState.OnStart += characterable.SkillHolder.ResetCurrent;
 
             if (!characterable.ChangeState(
-                new SkillExecuting(now, skill.GetExecutingTime(), finishState)
+                new SkillExecuting(
+                    now,
+                    skill.GetExecutingTime() - skill.GetChainTime(),
+                    new NextSkillChainChance(
+                        now,
+                        skill.GetExecutingTime() + skill.GetChainTime(),
+                        new SkillRecasting(
+                            now,
+                            skill.GetExecutingTime() + skill.GetRecastingTime(),
+                            finishState
+                            )
+                        )
+                    )
                 ))
             {
                 UnityEngine.Debug.Log("return");
