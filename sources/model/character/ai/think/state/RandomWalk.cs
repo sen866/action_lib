@@ -8,7 +8,7 @@ namespace action_game.sources.model.character.ai.think.state
 {
     class RandomWalk : IState
     {
-        public IState Update(ICharacterable own, float now, float deltaTime)
+        public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
             if (!own.CanMove())
             {

@@ -12,7 +12,7 @@ namespace action_game.sources.model.character.ai.think.state
         {
         }
 
-        public IState Update(ICharacterable own, float now, float deltaTime)
+        public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
             var enemies = Grouping.SearchEnemyGroup(own);
 

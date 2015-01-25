@@ -9,24 +9,11 @@ namespace action_game.sources.model.character.ai.think.state
     //  次何をするか考える状態
     class ThinkNext : IState
     {
-        public IState Update(ICharacterable own, float now, float deltaTime)
+        public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
+            var actable = parent.ThinkNext(own, now, deltaTime);
 
-            if (checkNextAttack(own))
-            {
-                return new state.Attack();
-            }
-
-            return new state.RandomWalk();
-        }
-
-        private bool checkNextAttack(ICharacterable own)
-        {
-            var enemies = Grouping.SearchEnemyGroup(own);
-
-            var target = utility.AttackableSearcher.SearchTarget(own, enemies);
-
-            return target != null;
+            return actable.Do(own, now, deltaTime);
         }
     }
 }

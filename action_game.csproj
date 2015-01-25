@@ -51,6 +51,13 @@
     <Compile Include="sources\model\character\ActionCharacterReferencer.cs" />
     <Compile Include="sources\model\character\ai\AIBuilder.cs" />
     <Compile Include="sources\model\character\ai\AIController.cs" />
+    <Compile Include="sources\model\character\ai\think\action\Actable.cs" />
+    <Compile Include="sources\model\character\ai\think\action\Attack.cs" />
+    <Compile Include="sources\model\character\ai\think\action\RandomWalk.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\AnyEnemyInRange.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\Checkable.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\ConditionGroup.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\Unconditional.cs" />
     <Compile Include="sources\model\character\ai\think\IThinkable.cs" />
     <Compile Include="sources\model\character\ai\think\state\Attack.cs" />
     <Compile Include="sources\model\character\ai\think\state\Attacking.cs" />

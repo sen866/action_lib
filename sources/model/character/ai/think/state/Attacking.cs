@@ -20,7 +20,7 @@ namespace action_game.sources.model.character.ai.think.state
 
         private bool isExecuting { get; set; }
 
-        public IState Update(ICharacterable own, float now, float deltaTime)
+        public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
             if (isExecuting)
             {
