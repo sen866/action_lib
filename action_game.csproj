@@ -155,6 +155,7 @@
     <Compile Include="sources\model\story\StageSelector.cs" />
     <Compile Include="sources\model\story\StoryProvider.cs" />
     <Compile Include="sources\model\utility\GlobalRandom.cs" />
+    <Compile Include="sources\model\utility\Updater.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sources\model\character\ai\think\part\" />
