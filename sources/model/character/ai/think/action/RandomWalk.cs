@@ -5,7 +5,7 @@ using System.Text;
 
 namespace action_game.sources.model.character.ai.think.action
 {
-    class RandomWalk : Actable
+    public class RandomWalk : Actable
     {
         public state.IState Do(ICharacterable own, float now, float deltaTime)
         {

@@ -8,32 +8,12 @@ using action_game.sources.model.character.ai.think.action;
 
 namespace action_game.sources.model.character.ai.think.state
 {
-    class ThinkByState : IThinkable
+    public class ThinkByState : IThinkable
     {
-        public ThinkByState()
+        public ThinkByState( List<ThinkReceipe> receipes )
         {
-            thinkReceipes = new List<ThinkReceipe>()
-            {
-                new ThinkReceipe(
-                    new ConditionGroup(
-                        new List<Checkable>()
-                        {
-                            new think.condition.AnyEnemyInRange()
-                        }
-                    ),
-                    new think.action.Attack()
-                ),
-                new ThinkReceipe(
-                    new ConditionGroup(
-                        new List<Checkable>()
-                        {
-                            new think.condition.Unconditional()
-                        }
-                     ),
-                     new think.action.RandomWalk()
-                )
-            }
-            ;
+            thinkReceipes = receipes;
+
             state = new Wait();
         }
 
@@ -50,18 +30,6 @@ namespace action_game.sources.model.character.ai.think.state
         }
 
         private IState state { get; set; }
-
-        class ThinkReceipe
-        {
-            public ThinkReceipe(ConditionGroup _conditions, Actable _action)
-            {
-                Conditions = _conditions;
-                ThinkAction = _action;
-            }
-
-            public ConditionGroup Conditions { get; set; }
-            public Actable ThinkAction { get; set; }
-        };
 
         private List<ThinkReceipe> thinkReceipes;
     }

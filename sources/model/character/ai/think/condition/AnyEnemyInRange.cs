@@ -6,7 +6,7 @@ using System.Text;
 
 namespace action_game.sources.model.character.ai.think.condition
 {
-    class AnyEnemyInRange : Checkable
+    public class AnyEnemyInRange : Checkable
     {
         public bool Check(ICharacterable own)
         {

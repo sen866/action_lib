@@ -5,7 +5,7 @@ using System.Text;
 
 namespace action_game.sources.model.character.ai.think.condition
 {
-    class ConditionGroup : Checkable
+    public class ConditionGroup : Checkable
     {
         public ConditionGroup(List<Checkable> _conditions)
         {

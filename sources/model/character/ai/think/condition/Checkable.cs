@@ -5,7 +5,7 @@ using System.Text;
 
 namespace action_game.sources.model.character.ai.think.condition
 {
-    interface Checkable
+    public interface Checkable
     {
         bool Check(ICharacterable own);
     }

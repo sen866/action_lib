@@ -67,6 +67,7 @@
     <Compile Include="sources\model\character\ai\think\state\ThinkNext.cs" />
     <Compile Include="sources\model\character\ai\think\state\Wait.cs" />
     <Compile Include="sources\model\character\ai\think\state\Walking.cs" />
+    <Compile Include="sources\model\character\ai\think\ThinkReceipe.cs" />
     <Compile Include="sources\model\character\ai\think\utility\AttackableDistance.cs" />
     <Compile Include="sources\model\character\ai\think\utility\AttackableSearcher.cs" />
     <Compile Include="sources\model\character\BattleCharacter.cs" />
