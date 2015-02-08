@@ -41,9 +41,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\Unity\ogames\action\dll\UnityEngine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,9 +76,15 @@
     <Compile Include="sources\model\character\ICharacterable.cs" />
     <Compile Include="sources\model\character\IMovable.cs" />
     <Compile Include="sources\model\character\ISkillExecutable.cs" />
+    <Compile Include="sources\model\character\IStatusChangable.cs" />
     <Compile Include="sources\model\character\item\EquipItemHolder.cs" />
     <Compile Include="sources\model\character\item\IEquipable.cs" />
+    <Compile Include="sources\model\character\item\ISpecialEffectable.cs" />
+    <Compile Include="sources\model\character\item\PickupItem.cs" />
+    <Compile Include="sources\model\character\item\PickupItemHolder.cs" />
+    <Compile Include="sources\model\character\item\SpecialEffectHeal.cs" />
     <Compile Include="sources\model\character\item\Weapon.cs" />
+    <Compile Include="sources\model\character\SpeedCalculator.cs" />
     <Compile Include="sources\model\character\state\Idle.cs" />
     <Compile Include="sources\model\character\state\IState.cs" />
     <Compile Include="sources\model\character\state\IStateChangable.cs" />

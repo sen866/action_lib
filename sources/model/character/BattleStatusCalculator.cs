@@ -9,7 +9,7 @@ namespace action_game.sources.model.character
     {
         public static BattleStatus calculate(BattleStatus basicStatus, ICharacterable characterable)
         {
-            return basicStatus + characterable.EquipItemHolder.getBattleStatus();
+            return basicStatus + characterable.EquipItemHolder.GetBattleStatus() + characterable.PickupItemHolder.GetBattleStatus();
         }
     }
 }

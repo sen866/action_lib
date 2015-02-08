@@ -12,7 +12,7 @@ namespace action_game.sources.model.character.item
             this.main = main;
         }
 
-        public BattleStatus getBattleStatus()
+        public BattleStatus GetBattleStatus()
         {
             BattleStatus result = new BattleStatus();
 

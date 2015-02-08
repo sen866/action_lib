@@ -7,17 +7,46 @@ namespace action_game.sources.model.character
 {
     public class BattleCharacter : IBattlable
     {
-        public BattleCharacter(ICharacterable owner, BattleStatus status)
+        public BattleCharacter(ICharacterable owner, BattleStatus _status)
         {
             this.owner = owner;
-            BattleStatus = status;
+            BattleStatus = _status;
             //  現在ＨＰを最大にしておく
             CurrentHitPoint = status.HitPoint;
         }
 
-        public BattleStatus BattleStatus { get; set; }
 
-        public float CurrentHitPoint { get; set; }
+        public BattleStatus BattleStatus
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+
+                CurrentHitPoint = Math.Min(CurrentHitPoint, BattleStatus.HitPoint);
+
+                OnHitpointChange(this);
+            }
+        }
+
+        public float CurrentHitPoint
+        {
+            get
+            {
+                return currentHitpoint;
+            }
+            set
+            {
+                currentHitpoint = value;
+
+                currentHitpoint = Math.Min(currentHitpoint, BattleStatus.HitPoint);
+
+                OnHitpointChange(this);
+            }
+        }
 
         public void Attack(IBattlable target)
         {
@@ -32,6 +61,10 @@ namespace action_game.sources.model.character
             target.Damaged(damage);
         }
 
+        public void Healed(float heal)
+        {
+            CurrentHitPoint += heal;
+        }
 
         public void Damaged(float damage)
         {
@@ -50,7 +83,13 @@ namespace action_game.sources.model.character
 
         private ICharacterable owner;
 
+        private BattleStatus status;
+
+        private float currentHitpoint;
+
         public event BattleEventHandler OnDamage;
+
+        public event BattleEventHandler OnHitpointChange = delegate { };
 
         public event BattleEventHandler OnDead;
     }

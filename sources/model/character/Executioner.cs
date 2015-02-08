@@ -38,7 +38,6 @@ namespace action_game.sources.model.character
                     )
                 ))
             {
-                UnityEngine.Debug.Log("return");
                 return;
             }
 

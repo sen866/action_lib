@@ -18,10 +18,16 @@ namespace action_game.sources.model.character
             CurrentPosition = pos;
             Gravity = gravity;
             SkillHolder = skillHolder;
+            PickupItemHolder = new PickupItemHolder();
+            PickupItemHolder.OnPickedItem += UpdateBattleStatus;
+            PickupItemHolder.OnPickedItem += UpdateRunMaxSpeed;
             EquipItemHolder = equipItemHolder;
+            BaseStatus = status;
             BattleCharacter = new BattleCharacter(this, BattleStatusCalculator.calculate(status, this));
 
-            RunMaxSpeed = runSpeed;
+            BasicRunMaxSpeed = runSpeed;
+
+            RunMaxSpeed = SpeedCalculator.Calculate(BasicRunMaxSpeed, this);
 
             GroupId = groupId;
 
@@ -144,12 +150,27 @@ namespace action_game.sources.model.character
             updateNextState(now);
         }
 
+        public void UpdateBattleStatus()
+        {
+            BattleCharacter.BattleStatus = BattleStatusCalculator.calculate(BaseStatus, this);
+        }
+
+        public void UpdateRunMaxSpeed()
+        {
+            RunMaxSpeed = SpeedCalculator.Calculate(BasicRunMaxSpeed, this);
+        }
+
+        public BattleStatus BaseStatus { get; set; }
+
+        public PickupItemHolder PickupItemHolder { get; set; }
 
         public EquipItemHolder EquipItemHolder { get; set; }
 
         public BattleCharacter BattleCharacter { get; set; }
 
         public float RunMaxSpeed { get; set; }
+
+        public float BasicRunMaxSpeed { get; set; }
 
         public GroupId GroupId { get; set; }
 

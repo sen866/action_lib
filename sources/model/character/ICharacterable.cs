@@ -13,6 +13,7 @@ namespace action_game.sources.model.character
     {
         Executioner Executioner { get; set; }
         SkillHolder SkillHolder { get; set; }
+        PickupItemHolder PickupItemHolder { get; set; }
         EquipItemHolder EquipItemHolder { get; set; }
         BattleCharacter BattleCharacter { get; set; }
 
