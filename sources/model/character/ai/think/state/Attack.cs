@@ -14,15 +14,6 @@ namespace action_game.sources.model.character.ai.think.state
 
         public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
-            var enemies = Grouping.SearchEnemyGroup(own);
-
-            var target = utility.AttackableSearcher.SearchTarget(own, enemies);
-
-            if (target == null)
-            {
-                return new state.Wait();
-            }
-
             own.Executioner.ExecuteNormal(now, own);
 
             return new state.Attacking(own);

@@ -54,6 +54,10 @@
     <Compile Include="sources\model\character\ai\think\condition\AnyEnemyInRange.cs" />
     <Compile Include="sources\model\character\ai\think\condition\Checkable.cs" />
     <Compile Include="sources\model\character\ai\think\condition\ConditionGroup.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\HitpointRateLessThan.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\HitpointRateLessThanEqual.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\HitpointRateMoreThan.cs" />
+    <Compile Include="sources\model\character\ai\think\condition\HitpointRateMoreThanEqual.cs" />
     <Compile Include="sources\model\character\ai\think\condition\Unconditional.cs" />
     <Compile Include="sources\model\character\ai\think\IThinkable.cs" />
     <Compile Include="sources\model\character\ai\think\state\Attack.cs" />
@@ -170,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sources\model\character\ai\think\part\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
