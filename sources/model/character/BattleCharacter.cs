@@ -25,10 +25,7 @@ namespace action_game.sources.model.character
             set
             {
                 status = value;
-
                 CurrentHitPoint = Math.Min(CurrentHitPoint, BattleStatus.HitPoint);
-
-                OnHitpointChange(this);
             }
         }
 

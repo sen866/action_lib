@@ -35,6 +35,11 @@ namespace action_game.sources.model
             gameEventHandlers[type] -= handler;
         }
 
+        public static void Clear(GameEventTypes type)
+        {
+            gameEventHandlers[type] = delegate { };
+        }
+
         public static void Dispatch(GameEventTypes type)
         {
             Action result;
@@ -42,6 +47,8 @@ namespace action_game.sources.model
             {
                 result();
             }
+
+            Clear(type);
         }
 
 

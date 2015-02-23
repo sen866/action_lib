@@ -41,6 +41,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Unity\ogames\action\dll\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +172,10 @@
     <Compile Include="sources\model\story\ScenarioSelector.cs" />
     <Compile Include="sources\model\story\StageSelector.cs" />
     <Compile Include="sources\model\story\StoryProvider.cs" />
+    <Compile Include="sources\model\trigger\Counter.cs" />
+    <Compile Include="sources\model\trigger\Once.cs" />
+    <Compile Include="sources\model\trigger\TriggerListener.cs" />
+    <Compile Include="sources\model\trigger\TriggerReceivable.cs" />
     <Compile Include="sources\model\utility\GlobalRandom.cs" />
     <Compile Include="sources\model\utility\Updater.cs" />
   </ItemGroup>
