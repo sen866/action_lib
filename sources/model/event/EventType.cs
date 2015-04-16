@@ -12,6 +12,7 @@ namespace action_game.sources.model
         StartGame,
         CompleteScenario,
         AllMinionKilled,
+        AllBossMinionKilled,
         StageClear,
         GameOver,
         GameClear,

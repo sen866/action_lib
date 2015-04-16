@@ -11,7 +11,7 @@ namespace action_game.sources.model.character
 {
     public class ActionCharacter : ICharacterable
     {
-        public ActionCharacter(BattleStatus status, GroupId groupId, Vector pos, float gravity, float runSpeed, SkillHolder skillHolder, EquipItemHolder equipItemHolder)
+        public ActionCharacter(BattleStatus status, GroupId groupId, GroupTag tag, Vector pos, float gravity, float runSpeed, SkillHolder skillHolder, EquipItemHolder equipItemHolder)
         {
             CurrentState = new Idle();
             Executioner = new Executioner();
@@ -30,6 +30,8 @@ namespace action_game.sources.model.character
             RunMaxSpeed = SpeedCalculator.Calculate(BasicRunMaxSpeed, this);
 
             GroupId = groupId;
+
+            GroupTag = tag;
 
             Id = Guid.NewGuid();
         }
@@ -173,6 +175,8 @@ namespace action_game.sources.model.character
         public float BasicRunMaxSpeed { get; set; }
 
         public GroupId GroupId { get; set; }
+
+        public GroupTag GroupTag { get; set; }
 
         public Guid Id { get; set; }
     }

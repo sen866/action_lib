@@ -19,6 +19,7 @@ namespace action_game.sources.model.character
 
         float RunMaxSpeed { get; set; }
         GroupId GroupId { get; set; }
+        GroupTag GroupTag { get; set; }
 
         void update(float now, float deltaTime);
     }

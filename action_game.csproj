@@ -41,9 +41,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\Unity\ogames\action\dll\UnityEngine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +50,7 @@
     <Compile Include="sources\model\character\ai\AIController.cs" />
     <Compile Include="sources\model\character\ai\think\action\Actable.cs" />
     <Compile Include="sources\model\character\ai\think\action\Attack.cs" />
+    <Compile Include="sources\model\character\ai\think\action\None.cs" />
     <Compile Include="sources\model\character\ai\think\action\RandomWalk.cs" />
     <Compile Include="sources\model\character\ai\think\condition\AnyEnemyInRange.cs" />
     <Compile Include="sources\model\character\ai\think\condition\Checkable.cs" />
@@ -79,6 +77,7 @@
     <Compile Include="sources\model\character\BattleStatusCalculator.cs" />
     <Compile Include="sources\model\character\Executioner.cs" />
     <Compile Include="sources\model\character\GroupId.cs" />
+    <Compile Include="sources\model\character\GroupTag.cs" />
     <Compile Include="sources\model\character\group\Grouping.cs" />
     <Compile Include="sources\model\character\ICharacterable.cs" />
     <Compile Include="sources\model\character\IMovable.cs" />
