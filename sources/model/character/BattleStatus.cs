@@ -51,6 +51,11 @@ namespace action_game.sources.model.character
                 hitpoint: a.HitPoint + b.HitPoint
                 );
         }
+
+        public BattleStatus Clone()
+        {
+            return new BattleStatus(attack, defense, hitpoint);
+        }
     }
 
     public delegate void BattleEventHandler(IBattlable battlable);

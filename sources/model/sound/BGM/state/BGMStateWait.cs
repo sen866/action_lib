@@ -16,7 +16,7 @@ namespace action_game.sources.model.sound.BGM.state
                 playable.SetVolume(0.0f);
                 return new BGMStateFadeIn(fadeInTime);
             }
-            playable.SetVolume(1.0f);
+            playable.SetVolume(0.75f);
             return new BGMStatePlaying();
         }
 

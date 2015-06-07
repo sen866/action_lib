@@ -41,13 +41,13 @@ namespace action_game.sources.model.sound.BGM.state
 
             if (elapsedTime >= fadeInTime)
             {
-                playable.SetVolume(1.0f);
+                playable.SetVolume(0.75f);
 
                 return new BGMStatePlaying();
             }
             else
             {
-                playable.SetVolume(elapsedTime / fadeInTime);
+                playable.SetVolume(elapsedTime / fadeInTime * 0.75f);
             }
 
             return this;

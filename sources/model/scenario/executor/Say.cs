@@ -15,7 +15,7 @@ namespace action_game.sources.model.scenario.executor
             Next,
         }
 
-        const float delay = 0.03f;
+        bool isWaitClick = true;
 
         public Say()
         {
@@ -51,10 +51,6 @@ namespace action_game.sources.model.scenario.executor
             //  再生完了している(親から呼ばれないはずなので必要ないきもする
             if (IsPlayed(parent)) return;
 
-            if (nextPlayTime > player.Now) return;
-
-            nextPlayTime = player.Now + delay;
-
             if (now == null)
             {
                 playFirstBefore(player, parent);
@@ -71,7 +67,14 @@ namespace action_game.sources.model.scenario.executor
                 catch (System.ArgumentOutOfRangeException)
                 {
                     //  多分終わり
-                    nowState = State.WaitNext;
+                    if (isWaitClick)
+                    {
+                        nowState = State.WaitNext;
+                    }
+                    else
+                    {
+                        nowState = State.Next;
+                    }
                     return;
                 }
             }
@@ -86,7 +89,12 @@ namespace action_game.sources.model.scenario.executor
 
         private void playFirstBefore(ScenarioPlayer player, IScenarioNode parent)
         {
-            player.StartNewText(toTextType(parent.GetAttribute("class").Value), parent.GetAttribute("name").Value);
+            player.ClearText();
+
+            if (parent.GetAttribute("isWaitClick").Value == "false")
+            {
+                isWaitClick = false;
+            }
 
             //  TODO文字列長計算したりとか
             now = parent.GetChildren().First();
@@ -94,7 +102,7 @@ namespace action_game.sources.model.scenario.executor
             SingleTouchController.OnTouch += onTouch;
         }
 
-        private TextType toTextType(String type)
+        public static TextType ToTextType(String type)
         {
             switch (type)
             {

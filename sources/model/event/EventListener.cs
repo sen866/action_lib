@@ -45,10 +45,12 @@ namespace action_game.sources.model
             Action result;
             if (gameEventHandlers.TryGetValue(type, out result))
             {
+                if (null == result)
+                {
+                    return;
+                }
                 result();
             }
-
-            Clear(type);
         }
 
 
@@ -74,6 +76,11 @@ namespace action_game.sources.model
             Action<ICharacterable> result;
             if (actionEventHandlers.TryGetValue(type, out result))
             {
+                if (null == result)
+                {
+                    return;
+                }
+
                 result(characterable);
             }
         }

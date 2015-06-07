@@ -136,6 +136,10 @@
     <Compile Include="sources\model\scenario\executor\Right.cs" />
     <Compile Include="sources\model\scenario\executor\Say.cs" />
     <Compile Include="sources\model\scenario\executor\Text.cs" />
+    <Compile Include="sources\model\scenario\executor\text\Effectable.cs" />
+    <Compile Include="sources\model\scenario\executor\text\EffectBuilder.cs" />
+    <Compile Include="sources\model\scenario\executor\text\Fade.cs" />
+    <Compile Include="sources\model\scenario\executor\text\Normal.cs" />
     <Compile Include="sources\model\scenario\executor\WaitNext.cs" />
     <Compile Include="sources\model\scenario\IScenarioNode.cs" />
     <Compile Include="sources\model\scenario\parser\Tokenizer.cs" />

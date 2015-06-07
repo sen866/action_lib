@@ -14,8 +14,15 @@ namespace action_game.sources.model.scenario.builder
         {
             String text = tokens.Current.GetToken();
             tokens.MoveNext();
+
+            while (IsSyntax(tokens))
+            {
+                text += System.Environment.NewLine;
+                text += tokens.Current.GetToken();
+                tokens.MoveNext();
+            }
             return new ScenarioElement(
-                new executor.Text(text)
+                new executor.Text(text, now.GetAttribute("effect").Value, float.Parse(now.GetAttribute("delay").Value))
                 );
         }
 

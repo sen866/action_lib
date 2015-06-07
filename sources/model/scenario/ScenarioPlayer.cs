@@ -106,9 +106,22 @@ namespace action_game.sources.model.scenario
             CurrentText = "";
         }
 
+        public void ClearText()
+        {
+            if (OnClearText != null)
+            {
+                OnClearText();
+            }
+        }
+
         public void AddText(String text)
         {
             CurrentText += text;
+        }
+
+        public void SetOpacity(float opacity)
+        {
+            OnChangeTextOpacity(opacity);
         }
 
         public void AddRightSide(ScenarioCharacter character)
@@ -175,7 +188,9 @@ namespace action_game.sources.model.scenario
         public float Now { get; private set; }
 
         public event Action<TextType, String> OnStartNewText;
+        public event Action OnClearText;
         public event Action<String> OnChangeText;
+        public event Action<float> OnChangeTextOpacity;
         public event Action<List<ScenarioCharacter>, ScenarioCharacter> OnAddRightSide;
         public event Action<List<ScenarioCharacter>, ScenarioCharacter> OnAddLeftSide;
         public event Action<List<ScenarioCharacter>, ScenarioCharacter> OnAddCenterSide;
