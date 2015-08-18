@@ -20,7 +20,10 @@ namespace action_game.sources.model.character
         float RunMaxSpeed { get; set; }
         GroupId GroupId { get; set; }
         GroupTag GroupTag { get; set; }
+        bool IsInvincible { get; set; }
+        event Action<ICharacterable> OnChangeInvincible;
 
-        void update(float now, float deltaTime);
+        void Update(float now, float deltaTime);
+        void KnockBacked(Vector distance);
     }
 }

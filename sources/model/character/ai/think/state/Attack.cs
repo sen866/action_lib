@@ -14,7 +14,10 @@ namespace action_game.sources.model.character.ai.think.state
 
         public IState Update(IThinkable parent, ICharacterable own, float now, float deltaTime)
         {
-            own.Executioner.ExecuteNormal(now, own);
+            if (!own.Executioner.ExecuteNormal(now, own))
+            {
+                return this;
+            }
 
             return new state.Attacking(own);
         }

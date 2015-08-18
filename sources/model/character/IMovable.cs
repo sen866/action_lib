@@ -5,6 +5,7 @@ using System.Text;
 
 namespace action_game.sources.model.character
 {
+    [Serializable]
     public struct Vector
     {
         public Vector(float x, float y, float z)
@@ -27,6 +28,16 @@ namespace action_game.sources.model.character
         public static Vector operator -(Vector a, Vector b)
         {
             return new Vector(a.x - b.x, a.y - b.y, a.z - b.z);
+        }
+
+        public static Vector operator +(Vector a, float f)
+        {
+            return new Vector(a.x + f, a.y + f, a.z + f);
+        }
+
+        public static Vector operator -(Vector a, float f)
+        {
+            return new Vector(a.x - f, a.y - f, a.z - f);
         }
 
         public static Vector operator *(Vector a, float f)
@@ -61,6 +72,9 @@ namespace action_game.sources.model.character
 
         Vector SetRotation(float x, float y, float z);
         Vector CurrentRotation { get; }
+
+        float SetFriction(float friction);
+        float CurrentFriction { get; }
 
         float Gravity { get; }
 

@@ -34,6 +34,10 @@ namespace action_game.sources.model.character
             GroupTag = tag;
 
             Id = Guid.NewGuid();
+
+            IsInvincible = false;
+
+            CurrentFriction = 0.0f;
         }
 
         public Vector CurrentPosition { get; private set; }
@@ -60,6 +64,15 @@ namespace action_game.sources.model.character
         }
 
         public Vector CurrentVelocity { get; private set; }
+
+        public float SetFriction(float friction)
+        {
+            CurrentFriction = friction;
+
+            return CurrentFriction;
+        }
+
+        public float CurrentFriction { get; private set; }
 
         public Vector SetRotation(float x, float y, float z)
         {
@@ -105,13 +118,13 @@ namespace action_game.sources.model.character
                 OnStateEnd(this);
             }
 
-            CurrentState.Exit();
+            CurrentState.Exit(this);
 
             CurrentState = state;
             if (OnChangeState != null)
                 OnChangeState(this);
 
-            CurrentState.Enter();
+            CurrentState.Enter(this);
 
             return true;
         }
@@ -146,10 +159,11 @@ namespace action_game.sources.model.character
         }
 
 
-        public void update(float now, float deltaTime)
+        public void Update(float now, float deltaTime)
         {
             updateVelocity(deltaTime);
             updateNextState(now);
+            BattleCharacter.Update(now, deltaTime);
         }
 
         public void UpdateBattleStatus()
@@ -179,5 +193,37 @@ namespace action_game.sources.model.character
         public GroupTag GroupTag { get; set; }
 
         public Guid Id { get; set; }
+
+        private bool isInvincible { get; set; }
+        public bool IsInvincible
+        {
+            get
+            {
+                return isInvincible;
+            }
+
+            set
+            {
+                if (isInvincible == value)
+                {
+                    return;
+                }
+
+                isInvincible = value;
+
+                OnChangeInvincible(this);
+            }
+        }
+
+        public event Action<ICharacterable> OnChangeInvincible = delegate { };
+        public event Action<ICharacterable> OnKnockBacked = delegate { };
+
+
+        public void KnockBacked(Vector distance)
+        {
+            ChangeState(new KnockBacked(1.0f, distance));
+
+            OnKnockBacked(this);
+        }
     }
 }

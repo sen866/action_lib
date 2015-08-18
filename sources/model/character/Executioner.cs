@@ -9,18 +9,23 @@ namespace action_game.sources.model.character
 {
     public class Executioner : ISkillExecutable
     {
-        public void ExecuteNormal(float now, ICharacterable characterable)
+        public bool ExecuteNormal(float now, ICharacterable characterable)
         {
             var skill = characterable.SkillHolder.Current;
 
             if (null == skill)
             {
-                return;
+                return false;
+            }
+
+            if (characterable.BattleCharacter.Stamina.Current < skill.GetNeedToUseStamina())
+            {
+                return false;
             }
 
             var finishState = new SkillExecuteFinish();
 
-            finishState.OnStart += characterable.SkillHolder.ResetCurrent;
+            finishState.OnStart += delegate(ICharacterable dummy) { characterable.SkillHolder.ResetCurrent(); };
 
             if (!characterable.ChangeState(
                 new SkillExecuting(
@@ -38,13 +43,15 @@ namespace action_game.sources.model.character
                     )
                 ))
             {
-                return;
+                return false;
             }
 
             //  実行
             skill.Execute(characterable);
 
             characterable.SkillHolder.MoveNextNormal();
+
+            return true;
         }
     }
 }

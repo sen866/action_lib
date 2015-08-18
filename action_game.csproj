@@ -90,10 +90,14 @@
     <Compile Include="sources\model\character\item\PickupItemHolder.cs" />
     <Compile Include="sources\model\character\item\SpecialEffectHeal.cs" />
     <Compile Include="sources\model\character\item\Weapon.cs" />
+    <Compile Include="sources\model\character\player\PlayerHolder.cs" />
+    <Compile Include="sources\model\character\player\PlayerInitializer.cs" />
     <Compile Include="sources\model\character\SpeedCalculator.cs" />
+    <Compile Include="sources\model\character\Stamina.cs" />
     <Compile Include="sources\model\character\state\Idle.cs" />
     <Compile Include="sources\model\character\state\IState.cs" />
     <Compile Include="sources\model\character\state\IStateChangable.cs" />
+    <Compile Include="sources\model\character\state\KnockBacked.cs" />
     <Compile Include="sources\model\character\state\NextSkillChainChance.cs" />
     <Compile Include="sources\model\character\state\SkillExecuteFinish.cs" />
     <Compile Include="sources\model\character\state\SkillExecuting.cs" />
@@ -157,8 +161,10 @@
     <Compile Include="sources\model\scenario\ScenarioElement.cs" />
     <Compile Include="sources\model\scenario\ScenarioLoader.cs" />
     <Compile Include="sources\model\scenario\ScenarioPlayer.cs" />
+    <Compile Include="sources\model\skill\Invincible.cs" />
     <Compile Include="sources\model\skill\ISkill.cs" />
     <Compile Include="sources\model\skill\NormalAttack.cs" />
+    <Compile Include="sources\model\skill\NormalHeal.cs" />
     <Compile Include="sources\model\skill\SkillHolder.cs" />
     <Compile Include="sources\model\sound\BGM\BGMPlayer.cs" />
     <Compile Include="sources\model\sound\BGM\BGMSound.cs" />
@@ -181,6 +187,7 @@
     <Compile Include="sources\model\trigger\TriggerReceivable.cs" />
     <Compile Include="sources\model\utility\GlobalRandom.cs" />
     <Compile Include="sources\model\utility\Updater.cs" />
+    <Compile Include="sources\model\utility\WaitTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sources\model\character\ai\think\part\" />

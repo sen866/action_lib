@@ -13,7 +13,7 @@ namespace action_game.sources.model.character.ai.think.state
             isExecuting = true;
         }
 
-        private void onExecuteEnd()
+        private void onExecuteEnd(ICharacterable characterable)
         {
             isExecuting = false;
         }

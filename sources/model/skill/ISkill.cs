@@ -14,8 +14,13 @@ namespace action_game.sources.model.skill
 
         float GetRecastingTime();
 
-        void Execute(ICharacterable executor);
+        int GetNeedToUseStamina();
+        int GetUsedStamina();
 
-        event Action<ICharacterable> OnExecute;
+        bool Execute(ICharacterable executor);
+
+        void Effect(ICharacterable executor, ICharacterable target, Vector hitPosition);
+
+        event Action<ICharacterable, ISkill> OnExecute;
     }
 }

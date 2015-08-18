@@ -17,6 +17,7 @@ namespace action_game.sources.model
         StageClear,
         GameOver,
         GameClear,
+        SelectStage,
     }
 
     [Serializable]

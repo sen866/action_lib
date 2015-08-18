@@ -54,19 +54,23 @@ namespace action_game.sources.model.character.state
         private IState nextState { get; set; }
 
 
-        public void Enter()
+        public void Enter(ICharacterable characterable)
         {
             if (null != OnStart)
-                OnStart();
+                OnStart(characterable);
+
+            OnStart = null;
         }
 
-        public void Exit()
+        public void Exit(ICharacterable characterable)
         {
             if (null != OnEnd)
-                OnEnd();
+                OnEnd(characterable);
+
+            OnEnd = null;
         }
 
-        public event Action OnStart;
-        public event Action OnEnd;
+        public event Action<ICharacterable> OnStart;
+        public event Action<ICharacterable> OnEnd;
     }
 }

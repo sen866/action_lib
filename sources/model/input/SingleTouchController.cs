@@ -102,7 +102,7 @@ namespace action_game.sources.model.input
 
         static private bool isFlick(float start, float end)
         {
-            return (end - start) * 1000 <= 400;
+            return (end - start) * 1000 <= FLICK_MAX_MILLISECONDS_TIME;
         }
 
         static public event SingleTouchEventHandler OnTouch;

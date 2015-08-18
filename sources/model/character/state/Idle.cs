@@ -41,20 +41,20 @@ namespace action_game.sources.model.character.state
             return this;
         }
 
-        public void Enter()
+        public void Enter(ICharacterable characterable)
         {
             if (null != OnStart)
-                OnStart();
+                OnStart(characterable);
         }
 
-        public void Exit()
+        public void Exit(ICharacterable characterable)
         {
             if (null != OnEnd)
-                OnEnd();
+                OnEnd(characterable);
         }
 
 
-        public event Action OnStart;
-        public event Action OnEnd;
+        public event Action<ICharacterable> OnStart;
+        public event Action<ICharacterable> OnEnd;
     }
 }

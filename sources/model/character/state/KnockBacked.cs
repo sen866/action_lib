@@ -5,16 +5,23 @@ using System.Text;
 
 namespace action_game.sources.model.character.state
 {
-    class SkillExecuteFinish : IState
+    class KnockBacked : IState
     {
+        public KnockBacked(float stateTime, Vector distance)
+        {
+            this.startTime = 0.0f;
+            this.stateTime = stateTime;
+            this.velocity = distance / stateTime;
+        }
+
         public State GetState()
         {
-            return State.SkillExecuteFinish;
+            return State.KnockBacked;
         }
 
         public bool IsToChangable(IState state)
         {
-            return true;
+            return state.GetState() == State.Idle || state.GetState() == State.KnockBacked;
         }
 
         public bool IsFromChangable(IState state)
@@ -34,7 +41,12 @@ namespace action_game.sources.model.character.state
 
         public bool IsNextStateTime(float now)
         {
-            return true;
+            if (startTime <= 0.0f)
+            {
+                startTime = now;
+            }
+
+            return now - startTime > stateTime;
         }
 
         public IState GetNextState()
@@ -44,17 +56,22 @@ namespace action_game.sources.model.character.state
 
         public void Enter(ICharacterable characterable)
         {
-            OnStart(characterable);
+            characterable.SetVelocity(velocity.x, velocity.y, velocity.z);
 
-            OnStart = null;
+            OnStart(characterable);
         }
 
         public void Exit(ICharacterable characterable)
         {
-            OnEnd(characterable);
+            characterable.SetVelocity(0.0f, 0.0f, 0.0f);
 
-            OnEnd = null;
+            OnEnd(characterable);
         }
+
+        private float startTime { get; set; }
+        private float stateTime { get; set; }
+
+        private Vector velocity { get; set; }
 
         public event Action<ICharacterable> OnStart = delegate { };
 

@@ -12,6 +12,7 @@ namespace action_game.sources.model.character.state
         NextSkillChainChance,
         SkillRecasting,
         SkillExecuteFinish,
+        KnockBacked,
     }
 
     public interface IState
@@ -23,10 +24,10 @@ namespace action_game.sources.model.character.state
         bool CanAttack();
         bool IsNextStateTime(float now);
         IState GetNextState();
-        void Enter();
-        void Exit();
+        void Enter(ICharacterable characterable);
+        void Exit(ICharacterable characterable);
 
-        event Action OnStart;
-        event Action OnEnd;
+        event Action<ICharacterable> OnStart;
+        event Action<ICharacterable> OnEnd;
     }
 }

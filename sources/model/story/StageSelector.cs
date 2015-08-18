@@ -26,5 +26,10 @@ namespace action_game.sources.model.story
             }
             return null;
         }
+
+        public StageData Select(String stage)
+        {
+            return stages.Find(_ => _.stage == stage);
+        }
     }
 }

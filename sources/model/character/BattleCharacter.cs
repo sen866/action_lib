@@ -1,4 +1,5 @@
-﻿using System;
+﻿using action_game.sources.model.skill;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace action_game.sources.model.character
             BattleStatus = _status;
             //  現在ＨＰを最大にしておく
             CurrentHitPoint = status.HitPoint;
+
+            Stamina = new Stamina(BattleStatus.Stamina, BattleStatus.StaminaHealInterval, BattleStatus.StaminaHealValuePerInterval);
         }
 
 
@@ -47,15 +50,12 @@ namespace action_game.sources.model.character
 
         public void Attack(IBattlable target)
         {
-            //  なんかこれあったほうが色々都合悪い気がするのでコメントアウト
-            /*
-            if (!owner.CurrentState.CanAttack())
-            {
-                return;
-            }
-            */
-            var damage = BattleStatus.Attack - target.BattleStatus.Defense;
-            target.Damaged(damage);
+            throw new Exception("please don't used this method.");
+        }
+
+        public void Attack(ISkill skill, BattleCharacter target, Vector hitPosition)
+        {
+            skill.Effect(this.owner, target.owner, hitPosition);
         }
 
         public void Healed(float heal)
@@ -78,11 +78,18 @@ namespace action_game.sources.model.character
             }
         }
 
+        public void Update(float now, float deltaTime)
+        {
+            Stamina.Update(now, deltaTime);
+        }
+
         private ICharacterable owner;
 
         private BattleStatus status;
 
         private float currentHitpoint;
+
+        public Stamina Stamina { get; private set; }
 
         public event BattleEventHandler OnDamage;
 
