@@ -1,4 +1,5 @@
-﻿using System;
+﻿using action_game.sources.model.stage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace action_game.sources.model.story
             return null;
         }
 
-        public StageData Select(String stage)
+        public StageData Select(StageKind stage)
         {
             return stages.Find(_ => _.stage == stage);
         }

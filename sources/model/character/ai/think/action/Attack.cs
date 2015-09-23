@@ -9,7 +9,7 @@ namespace action_game.sources.model.character.ai.think.action
     {
         public state.IState Do(ICharacterable own, float now, float deltaTime)
         {
-            return new state.Attack();
+            return new state.TurnRound(own, 0.3f);
         }
     }
 }

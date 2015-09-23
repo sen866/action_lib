@@ -98,6 +98,7 @@ namespace action_game.sources.model.skill
             if (knockBackDistance > 0.0f)
             {
                 var direction = target.CurrentPosition - hitPosition;
+                direction.y = 0.0f;
 
                 direction = direction / direction.Magnitude();
 

@@ -65,6 +65,8 @@ namespace action_game.sources.model.character.state
         {
             characterable.SetVelocity(0.0f, 0.0f, 0.0f);
 
+            characterable.SkillHolder.ResetCurrent();
+
             OnEnd(characterable);
         }
 

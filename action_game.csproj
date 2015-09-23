@@ -35,6 +35,9 @@
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JsonFx">
+      <HintPath>..\..\..\Unity\ogames\action\action_cs\packages\JsonFx.2.0.1209.2802\lib\net35\JsonFx.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +70,7 @@
     <Compile Include="sources\model\character\ai\think\state\RandomWalk.cs" />
     <Compile Include="sources\model\character\ai\think\state\ThinkByState.cs" />
     <Compile Include="sources\model\character\ai\think\state\ThinkNext.cs" />
+    <Compile Include="sources\model\character\ai\think\state\TurnRound.cs" />
     <Compile Include="sources\model\character\ai\think\state\Wait.cs" />
     <Compile Include="sources\model\character\ai\think\state\Walking.cs" />
     <Compile Include="sources\model\character\ai\think\ThinkReceipe.cs" />
@@ -178,6 +182,11 @@
     <Compile Include="sources\model\sound\ISoundPlayable.cs" />
     <Compile Include="sources\model\sound\SE\SoundEffecter.cs" />
     <Compile Include="sources\model\sound\SE\SoundEffectType.cs" />
+    <Compile Include="sources\model\stage\StageClearData.cs" />
+    <Compile Include="sources\model\stage\StageClearDataDetail.cs" />
+    <Compile Include="sources\model\stage\StageClearDataHolder.cs" />
+    <Compile Include="sources\model\stage\StageKind.cs" />
+    <Compile Include="sources\model\stage\StageReleaser.cs" />
     <Compile Include="sources\model\story\ScenarioSelector.cs" />
     <Compile Include="sources\model\story\StageSelector.cs" />
     <Compile Include="sources\model\story\StoryProvider.cs" />
@@ -194,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

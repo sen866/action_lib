@@ -1,4 +1,5 @@
-﻿using System;
+﻿using action_game.sources.model.stage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace action_game.sources.model.story
     [Serializable]
     public class StageData
     {
-        public String stage = "";
+        public StageKind stage = StageKind.Undefined;
         public String scene = "";
         public LoadType loadType = LoadType.Simple;
     };
@@ -51,15 +52,15 @@ namespace action_game.sources.model.story
             return result;
         }
 
-        public StageData FindStage(String name)
+        public StageData FindStage(StageKind kind)
         {
             StageData result;
-            stages.TryGetValue(name, out result);
+            stages.TryGetValue(kind, out result);
 
             return result;
         }
 
         private Dictionary<String, ScenarioData> scenarios { get; set; }
-        private Dictionary<String, StageData> stages { get; set; }
+        private Dictionary<StageKind, StageData> stages { get; set; }
     }
 }

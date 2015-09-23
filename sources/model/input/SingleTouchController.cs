@@ -111,7 +111,7 @@ namespace action_game.sources.model.input
         static public event SingleTouchEventHandler OnSwipeEnded;
 
 
-        private const int FLICK_MAX_MILLISECONDS_TIME = 400;
+        private const int FLICK_MAX_MILLISECONDS_TIME = 100;
 
         //  一番最後にタッチが開始されたものを覚えておく
         static private TouchEvent lastTouchEvent { get; set; }
