@@ -191,6 +191,7 @@
     <Compile Include="sources\model\story\StageSelector.cs" />
     <Compile Include="sources\model\story\StoryProvider.cs" />
     <Compile Include="sources\model\trigger\Counter.cs" />
+    <Compile Include="sources\model\trigger\GameEventCounter.cs" />
     <Compile Include="sources\model\trigger\Once.cs" />
     <Compile Include="sources\model\trigger\TriggerListener.cs" />
     <Compile Include="sources\model\trigger\TriggerReceivable.cs" />

@@ -15,6 +15,8 @@ namespace action_game.sources.model.stage
             {
                 StageClears.Add(new StageClearDataDetail(kind));
             }
+
+            Find(StageKind.First).Released = true;
         }
 
         public StageClearDataDetail Find(StageKind kind)

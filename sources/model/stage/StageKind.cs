@@ -16,6 +16,7 @@ namespace action_game.sources.model.stage
         Water,
         Fire,
         Dark,
-        Last,
+        LastIndex,
+        Last = LastIndex - 1,
     }
 }

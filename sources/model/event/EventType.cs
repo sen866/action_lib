@@ -18,6 +18,7 @@ namespace action_game.sources.model
         GameOver,
         GameClear,
         SelectStage,
+        KilledBoss,
     }
 
     [Serializable]
